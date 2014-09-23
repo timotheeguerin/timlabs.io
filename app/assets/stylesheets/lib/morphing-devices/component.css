@@ -1,0 +1,276 @@
+
+/* Slider style */
+.md-slider {
+	width: 100%;
+	position: relative;
+	padding-bottom: 10rem;
+	padding-top: 4rem;
+	margin: 10px 0;
+}
+
+.md-slider > nav {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	top: 0;
+}
+
+.md-slider > nav a {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	background: #ddd;
+	margin: 3px;
+	border-radius: 2px;
+	outline: none;
+}
+
+.touch .md-slider > nav a {
+	width: 20px;
+	height: 20px;
+	margin: 2px 8px;
+}
+
+.md-slider > nav a:hover,
+.md-slider > nav a.md-current {
+	background: #aaa;
+}
+
+/* General style for all devices */
+.device-wrapper {
+	position: relative;
+	text-align: center;
+	width: 760px;
+	margin: 0 auto;
+}
+
+.device {
+	position: relative;
+	display: inline-block;
+	border-radius: 5px;
+	background-color: #333;
+	transform: translateY(0px);
+}
+
+.device > a,
+.device > a img {
+	display: block;
+	outline: none;
+}
+
+.device > a {
+	position: relative;
+}
+
+.device > a img {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.device > a img.md-fadeout {
+	opacity: 0;
+}
+
+/* reset box sizing for this demo */
+/* we want the paddings to be added to our width/height */
+.device,
+.device div,
+.device:before,
+.device:after {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+/* Common pseudo elements' properties */
+/* device:before -- camera / top element */
+/* device:after -- home button */
+/* md-base-element:after -- socket of base */
+/* md-border-element:after -- grey inset opending macbook */
+.device:before,
+.device:after,
+.md-base-element:after,
+.md-border-element:after {
+	position: absolute;
+	content: '';
+	z-index: 1000;
+	left: 50%;
+	top: 0;
+}
+
+.device:before,
+.device:after {
+	background: #000;
+}
+
+.device:before {
+	transform: translateY(300%) translateX(-50%);
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+}
+
+.device > div {
+	position: absolute;
+}
+
+/* button for rotating a device */
+.device button {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	z-index: 1001;
+	border: none;
+	color: #fff;
+	background: #101010;
+	text-align: center;
+	cursor: pointer;
+	margin: -25px 0 0 -25px;
+	opacity: 0;
+	outline: none;
+}
+
+.device:hover button,
+.touch .device button {
+	opacity: 1;
+}
+
+.device button:before {
+	font-family: 'md-icons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	font-size: 30px;
+	line-height: 50px;
+	-webkit-font-smoothing: antialiased;
+	content: "\e000";
+}
+
+.device.md-rotated button {
+	transform: scaleX(-1);
+}
+
+/* Let's predefine some properties so that transitions happen smoothly */
+.md-border-element,
+.md-base-element,
+.md-border-element:after {
+	opacity: 0;
+}
+
+/* device:after -- home button (device 3 and 4) */
+.device:after {
+	width: 24px;
+	height: 24px;
+	top: 100%;
+	border-radius: 50%;
+	transform-origin: 50% 100%;
+	transform: translateY(-200%) translateX(-50%) scale(0);
+}
+
+/* md-border-element -- border bottom iMac, keyboard/base macbook */
+.md-border-element {
+	height: 60px;
+	border-radius: 0 0 5px 5px;
+	top: 100%;
+	width: 100%;
+	background: #ddd;
+	left: 50%;
+}
+
+/* md-border-element:after; -- grey inset opending macbook */
+.md-border-element:after {
+	background: #aaa;
+	width: 100px;
+	border-radius: 0 0 6px 6px;
+	height: 10px;
+	opacity: 0;
+}
+
+.md-border-element,
+.md-border-element:after {
+	transform: translateX(-50%);
+}
+
+/* md-base-element -- base imac */
+.md-base-element {
+	top: 100%;
+	left: 50%;
+	width: 160px;
+	height: 0;
+	background: transparent;
+	border-bottom: 60px solid #ddd;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	transform: translateY(60px) translateX(-50%) translateY(-75%);
+	z-index: -1;
+}
+
+/* md-base-element:after -- socket of base imac */
+.md-base-element:after {
+	background: #ddd;
+	border-radius: 30px 30px 10px 10px;
+	width: 260px;
+	height: 12px;
+	transform: translateY(60px) translateX(-50%);
+}
+
+
+/* Transitions */
+.device,
+.device:before,
+.md-border-element,
+.device > a {
+	transition: all 0.3s;
+}
+
+.md-base-element,
+.device:after,
+.md-border-element:after {
+	transition: transform 0.3s, opacity 0.3s;
+}
+
+.device,
+.device:before,
+.md-border-element,
+.device > a,
+.md-base-element,
+.device:after,
+.md-border-element:after {
+	transition-timing-function: ease-in-out;
+}
+
+.device > a img {
+	transition: opacity 0.5s linear;
+}
+
+.device button {
+	transition: transform 0.3s, opacity 0.3s;
+}
+
+@media screen and (max-width: 850px){
+
+	.md-slider {
+		height: 400px;
+	}
+
+	.device-wrapper {
+		-webkit-transform: scale(0.5) translateX(-50%) translateY(10%);
+		-moz-transform: scale(0.5) translateX(-50%) translateY(10%);
+		-ms-transform: scale(0.5) translateX(-50%) translateY(10%);
+		transform: scale(0.5) translateX(-50%) translateY(10%);
+		-webkit-transform-origin: 0 0;
+		-moz-transform-origin: 0 0;
+		-ms-transform-origin: 0 0;
+		transform-origin: 0 0;
+		left: 50%;
+	}
+
+}

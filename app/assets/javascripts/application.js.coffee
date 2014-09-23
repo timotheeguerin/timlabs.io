@@ -23,8 +23,8 @@ $(document).ready () ->
     parallax_background = {}
     parallax_background.element = $(this)
     parallax_background.height = parallax_background.element.height();
-    parallax_background.offset = parallax_background.element.offset();
-    console.log("Stating: #{parallax_background.offset.top}")
+    parallax_background.starting = parallax_background.element.offset();
+    console.log("Stating: #{parallax_background.starting.top}")
     parallax_backgrounds.push(parallax_background)
 
   $(window).scroll () ->
@@ -32,13 +32,11 @@ $(document).ready () ->
       scroll = $(window).scrollTop()
 
       for parallax_background in parallax_backgrounds
-        should = parallax_background.offset.top - scroll - parallax_background.element.offset().top
-        console.log("Scroll: #{scroll}, Top: #{parallax_background.element.offset().top}, Was #{parallax_background.offset.top}")
-#        parallax_background.element.css('top', "#{(-scroll).toFixed(0)}px")
-        parallax_background.element.css('transform', "translate3d(0, #{(-scroll/3).toFixed(0)}px, 0)")
-#        parallax_background.element.css('background-position', "0 #{(-scroll / 3).toFixed(0)}px")
-        console.log("Computed:  #{parallax_background.element.offset().top}, #{should}, #{parallax_background.element.css('transform')}")
-
+#        console.log("#{scroll + $(window).height()}, #{parallax_background.starting.top}")
+        if (scroll + $(window).height() >= parallax_background.starting.top )
+#          console.log('translate: ')
+          value = scroll - parallax_background.starting.top
+          parallax_background.element.css('transform', "translate3d(0, #{(value / 2).toFixed(0)}px, 0)")
 
 
   $('a[href*=#]:not([href=#])').click () ->
@@ -48,7 +46,7 @@ $(document).ready () ->
       console.log(this.hash)
       target = $(this.hash)
       console.log(target)
-#      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      #      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
       console.log(target.length)
       if target.length
         console.log('len')
@@ -57,3 +55,17 @@ $(document).ready () ->
         }, speed)
 
         return false
+
+  $(document).on 'mouseenter', '.scale-font-over', () ->
+    console.log('test')
+    item = $(this)
+    scale = item.data('scale')
+    item.data('old-size', item.css('font-size'))
+    size = parseInt(item.css('font-size')) * scale
+    item.animate({"font-size": size})
+
+
+  $(document).on 'mouseleave', '.scale-font-over', () ->
+    item = $(this)
+    size = item.data('old-size')
+    item.animate({"font-size": size})

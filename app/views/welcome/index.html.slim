@@ -1,12 +1,57 @@
 .welcome
-  .background-skrollr
+  img.background-skrollr src=image_path('background-cloud1.jpg')
   .welcome-heading
-    .picture
+    .round-picture
     h1 Timothée Guérin
     h3 Web developer
     .buttons
       a.transparent-button.text-lg href='#welcome-content' data-speed='500'
         | Contact
   #welcome-content.welcome-content
-    - 100.times.each
-      div Some text
+    .section.text-center class='bg-blue-medium text-grey-lightest'
+      h2 Some title
+      - 30.times.each
+        = 'Some text '
+      .device-container
+        .md-slider.pc
+          .device.device-1.device-sm
+            a.device-screen href="#" class='bg-red-medium'
+              /img src=image_path('site1.jpg')
+              - 5.times.each do
+                = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
+            .md-border-element
+            .md-base-element
+        .md-slider.laptop
+          .device.device-2.device-sm
+            a.device-screen href="#" class='bg-red-medium'
+              - 5.times.each do
+                = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
+            .md-border-element
+            .md-base-element
+        .md-slider.tablet
+          .device.device-3.device-sm
+            a.device-screen href="#" class='bg-red-medium'
+              - 2.times.each do
+                = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
+            .md-border-element
+            .md-base-element
+        .md-slider.phone
+          .device.device-4.device-sm
+            a.device-screen href="#" class='bg-red-medium'
+              - 1.times.each do
+                = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
+            .md-border-element
+            .md-base-element
+
+    img.background-skrollr src=image_path('background-cloud1.jpg')
+    .section-join
+    .section-box.text-center class='bg-grey-white text-grey-darker'
+      h2 Some title
+      - 30.times.each
+        = 'Some text '
+    .section-join
+    .section.text-center class='bg-red-medium text-grey-lightest'
+      .round-picture
+      h2 Some title
+      - 30.times.each
+        = 'Some text '
