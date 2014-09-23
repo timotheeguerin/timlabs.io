@@ -56,6 +56,7 @@ GEM
     mime-types (2.3)
     minitest (5.4.1)
     multi_json (1.10.1)
+    mysql2 (0.3.16)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -122,6 +123,7 @@ DEPENDENCIES
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
+  mysql2
   rails (= 4.1.6)
   redcarpet
   sass-rails (~> 4.0.3)
