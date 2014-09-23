@@ -26,17 +26,19 @@ $(document).ready () ->
     parallax_background.starting = parallax_background.element.offset();
     console.log("Stating: #{parallax_background.starting.top}")
     parallax_backgrounds.push(parallax_background)
+    parallax_background.element.css('transform', "translate3d(0, -25vh, 0)")
+
 
   $(window).scroll () ->
     window.requestAnimationFrame () ->
       scroll = $(window).scrollTop()
 
       for parallax_background in parallax_backgrounds
-#        console.log("#{scroll + $(window).height()}, #{parallax_background.starting.top}")
         if (scroll + $(window).height() >= parallax_background.starting.top )
-#          console.log('translate: ')
-          value = scroll - parallax_background.starting.top
-          parallax_background.element.css('transform', "translate3d(0, #{(value / 2).toFixed(0)}px, 0)")
+          value = scroll  - parallax_background.starting.top
+          console.log("val: #{value}, scroll: #{scroll}")
+          parallax_background.element.css('transform', "translate3d(0, calc(#{(value * 0.75).toFixed(0)}px - 25vh), 0)")
+          console.log('margin: #{}')
 
 
   $('a[href*=#]:not([href=#])').click () ->

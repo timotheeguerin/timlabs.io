@@ -1,5 +1,5 @@
 .welcome
-  img.background-skrollr src=image_path('background-cloud1.jpg')
+  .background-skrollr src=image_path('trianglify-background.svg')
   .welcome-heading
     .round-picture
     h1 Timothée Guérin
@@ -8,7 +8,7 @@
       a.transparent-button.text-lg href='#welcome-content' data-speed='500'
         | Contact
   #welcome-content.welcome-content
-    .section.text-center class='bg-blue-medium text-grey-lightest'
+    .section.text-center class='bg-blue-darker text-grey-lighter'
       h2 Some title
       - 30.times.each
         = 'Some text '
@@ -42,16 +42,17 @@
                 = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
             .md-border-element
             .md-base-element
-
-    img.background-skrollr src=image_path('background-cloud1.jpg')
+    .relative
+      img.background-skrollr src=image_path('trianglify-background.svg')
     .section-join
     .section-box.text-center class='bg-grey-white text-grey-darker'
       h2 Some title
       - 30.times.each
         = 'Some text '
     .section-join
-    .section.text-center class='bg-red-medium text-grey-lightest'
+    .section.text-center class='bg-test text-grey-lightest'
       .round-picture
       h2 Some title
       - 30.times.each
         = 'Some text '
+    .section.text-center class='bg-grey-dark text-grey-lightest'
