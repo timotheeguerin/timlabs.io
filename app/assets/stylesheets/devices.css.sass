@@ -1,0 +1,156 @@
+@import "variables"
+
+.device-container
+  position: relative
+  padding-bottom: 10rem
+  padding-top: 4rem
+  .device
+
+    &.device-1
+
+    &.device-2
+      position: absolute
+      top: 15rem
+      left: 0
+
+    &.device-3
+      position: absolute
+      top: 4rem
+      left: 67rem
+
+    &.device-4
+      position: absolute
+      top: 15rem
+      left: 59rem
+    a.device-screen
+      display: flex
+      align-items: center
+      justify-content: center
+      .fa
+        font-size: 4rem
+        margin: 1rem
+
+.device
+  &.device-1
+    border-radius: 5px 5px 0 0
+
+    .md-border-element
+      opacity: 1
+
+    .md-base-element
+      opacity: 1
+
+    &.device-sm
+      padding: 21px
+      > a
+        width: 500px
+        height: 325px
+
+      .md-border-element
+        height: 42px
+
+      .md-base-element
+        height: 42px
+        &:after
+          transform: translateY(90px) translateX(-50%) translateY(0)
+
+    &.device-md
+      padding: 30px
+      > a
+        width: 700px
+        height: 455px
+
+      .md-border-element
+        height: 60px
+      .md-base-element
+        height: 60px
+        transform: translateY(60px) translateX(-50%) translateY(0)
+
+  &.device-2
+    padding: 30px
+    border-radius: 5px 5px 0 0
+
+    .md-border-element
+      opacity: 1
+      width: 125%
+      background: #ddd
+
+      &:after
+        opacity: 1
+
+    &.device-sm
+      padding: 21px
+      > a
+        width: 428px
+        height: 278px
+
+      .md-border-element
+        height: 25px
+        border-radius: 0 0 14px 14px
+
+    &.device-md
+      padding: 21px
+      > a
+        width: 600px
+        height: 390px
+
+      .md-border-element
+        height: 35px
+        border-radius: 0 0 20px 20px
+
+  &.device-3
+
+    transform: translateY(40px)
+
+    &.md-rotated
+      transform: translateY(40px) rotate(90deg)
+
+    &:before
+      transform: translateY(600%) translateX(-50%)
+
+    &.device-sm
+      padding: 39px 28px
+      > a
+        width: 200px
+        height: 267px
+
+      &:after
+        transform: translateY(-125%) translateX(-50%) scale(1)
+
+    &.device-md
+      padding: 55px 40px
+      > a
+        width: 280px
+        height: 375px
+
+      &:after
+        transform: translateY(-175%) translateX(-50%) scale(1)
+
+  &.device-4
+    transform: translateY(50px)
+
+    &.md-rotated
+      transform: translateY(50px) rotate(90deg)
+
+    &:before
+      width: 20px
+      height: 4px
+      border-radius: 3px
+      transform: translateY(600%) translateX(-50%)
+
+    &.device-sm
+      padding: 35px 8px 50px
+      > a
+        width: 142px
+        height: 213px
+
+      &:after
+        transform: translateY(-142%) translateX(-50%) scale(1)
+
+    &.device-md
+      padding: 50px 12px 70px
+      > a
+        width: 200px
+        height: 299px
+      &:after
+        transform: translateY(-200%) translateX(-50%) scale(1)

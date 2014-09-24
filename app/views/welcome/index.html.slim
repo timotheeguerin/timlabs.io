@@ -13,35 +13,31 @@
       - 30.times.each
         = 'Some text '
       .device-container
-        .md-slider.pc
-          .device.device-1.device-sm
-            a.device-screen href="#" class='bg-red-medium'
-              /img src=image_path('site1.jpg')
-              - 5.times.each do
-                = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
-            .md-border-element
-            .md-base-element
-        .md-slider.laptop
-          .device.device-2.device-sm
-            a.device-screen href="#" class='bg-red-medium'
-              - 5.times.each do
-                = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
-            .md-border-element
-            .md-base-element
-        .md-slider.tablet
-          .device.device-3.device-sm
-            a.device-screen href="#" class='bg-red-medium'
-              - 2.times.each do
-                = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
-            .md-border-element
-            .md-base-element
-        .md-slider.phone
-          .device.device-4.device-sm
-            a.device-screen href="#" class='bg-red-medium'
-              - 1.times.each do
-                = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
-            .md-border-element
-            .md-base-element
+        .device.device-1.device-sm
+          a.device-screen href="#" class='bg-red-medium'
+            /img src=image_path('site1.jpg')
+            - 5.times.each do
+              = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
+          .md-border-element
+          .md-base-element
+        .device.device-2.device-sm
+          a.device-screen href="#" class='bg-red-medium'
+            - 5.times.each do
+              = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
+          .md-border-element
+          .md-base-element
+        .device.device-3.device-sm
+          a.device-screen href="#" class='bg-red-medium'
+            - 2.times.each do
+              = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
+          .md-border-element
+          .md-base-element
+        .device.device-4.device-sm
+          a.device-screen href="#" class='bg-red-medium'
+            - 1.times.each do
+              = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
+          .md-border-element
+          .md-base-element
     .relative
       img.background-skrollr src=image_path('trianglify-background.svg')
     .section-join
