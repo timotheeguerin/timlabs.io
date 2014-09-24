@@ -13,31 +13,31 @@
       - 30.times.each
         = 'Some text '
       .device-container
-        .device.device-1.device-sm
+        .device.device-pc.device-sm
           a.device-screen href="#" class='bg-red-medium'
             /img src=image_path('site1.jpg')
             - 5.times.each do
               = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
-          .md-border-element
-          .md-base-element
-        .device.device-2.device-sm
+          .border-element
+          .base-element
+        .device.device-laptop.device-sm
           a.device-screen href="#" class='bg-red-medium'
             - 5.times.each do
               = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
-          .md-border-element
-          .md-base-element
-        .device.device-3.device-sm
+          .border-element
+          .base-element
+        .device.device-tablet.device-sm
           a.device-screen href="#" class='bg-red-medium'
             - 2.times.each do
               = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
-          .md-border-element
-          .md-base-element
-        .device.device-4.device-sm
+          .border-element
+          .base-element
+        .device.device-phone.device-sm
           a.device-screen href="#" class='bg-red-medium'
             - 1.times.each do
               = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
-          .md-border-element
-          .md-base-element
+          .border-element
+          .base-element
     .relative
       img.background-skrollr src=image_path('trianglify-background.svg')
     .section-join

@@ -6,19 +6,19 @@
   padding-top: 4rem
   .device
 
-    &.device-1
+    &.device-pc
 
-    &.device-2
+    &.device-laptop
       position: absolute
       top: 15rem
       left: 0
 
-    &.device-3
+    &.device-tablet
       position: absolute
       top: 4rem
       left: 67rem
 
-    &.device-4
+    &.device-phone
       position: absolute
       top: 15rem
       left: 59rem
@@ -30,14 +30,134 @@
         font-size: 4rem
         margin: 1rem
 
+/* General style for all devices */
+
 .device
-  &.device-1
+  position: relative
+  display: inline-block
+  border-radius: 5px
+  background-color: #333
+  transform: translateY(0px)
+  > div
+    position: absolute
+  > a
+    display: block
+    outline: none
+    position: relative
+
+
+    img
+      display: block
+      outline: none
+      width: 100%
+      height: 100%
+      position: absolute
+      top: 0
+      left: 0
+
+      &.img.md-fadeout
+        opacity: 0
+
+/* reset box sizing for this demo */
+/* we want the paddings to be added to our width/height */
+.device,
+.device div,
+.device:before,
+.device:after
+  //box-sizing: content-box
+
+/* Common pseudo elements' properties */
+/* device:before -- camera / top element */
+/* device:after -- home button */
+/* base-element:after -- socket of base */
+/*  border-element:after -- grey inset opending macbook */
+.device:before,
+.device:after,
+.base-element:after,
+.border-element:after
+  position: absolute
+  content: ''
+  z-index: 1000
+  left: 50%
+  top: 0
+
+.device:before,
+.device:after
+  background: $grey_darkest
+
+.device:before
+  transform: translateY(300%) translateX(-50%)
+  width: 4px
+  height: 4px
+  border-radius: 50%
+
+
+/* Hide element, show only for the devices that need them */
+.border-element,
+.base-element,
+.border-element:after
+  opacity: 0
+
+/* device:after -- home button (device 3 and 4) */
+.device:after
+  width: 24px
+  height: 24px
+  top: 100%
+  border-radius: 50%
+  transform-origin: 50% 100%
+  transform: translateY(-200%) translateX(-50%) scale(0)
+
+/* border-element -- border bottom iMac, keyboard/base macbook */
+.border-element
+  height: 60px
+  border-radius: 0 0 5px 5px
+  top: 100%
+  width: 100%
+  background: #ddd
+  left: 50%
+
+/* border-element:after -- grey inset opending macbook */
+.border-element:after
+  background: #aaa
+  width: 100px
+  border-radius: 0 0 6px 6px
+  height: 10px
+  opacity: 0
+
+.border-element,
+.border-element:after
+  transform: translateX(-50%)
+
+/* base-element -- base imac */
+.base-element
+  top: 100%
+  left: 50%
+  width: 160px
+  height: 0
+  background: transparent
+  border-bottom: 60px solid #ddd
+  border-left: 15px solid transparent
+  border-right: 15px solid transparent
+  transform: translateY(60px) translateX(-50%) translateY(-75%)
+  z-index: -1
+
+/* base-element:after -- socket of base imac */
+.base-element:after
+  background: #ddd
+  border-radius: 30px 30px 10px 10px
+  width: 260px
+  height: 12px
+  transform: translateY(60px) translateX(-50%)
+
+
+.device
+  &.device-pc
     border-radius: 5px 5px 0 0
 
-    .md-border-element
+    .border-element
       opacity: 1
 
-    .md-base-element
+    .base-element
       opacity: 1
 
     &.device-sm
@@ -46,10 +166,10 @@
         width: 500px
         height: 325px
 
-      .md-border-element
+      .border-element
         height: 42px
 
-      .md-base-element
+      .base-element
         height: 42px
         &:after
           transform: translateY(90px) translateX(-50%) translateY(0)
@@ -60,17 +180,17 @@
         width: 700px
         height: 455px
 
-      .md-border-element
+      .border-element
         height: 60px
-      .md-base-element
+      .base-element
         height: 60px
         transform: translateY(60px) translateX(-50%) translateY(0)
 
-  &.device-2
+  &.device-laptop
     padding: 30px
     border-radius: 5px 5px 0 0
 
-    .md-border-element
+    .border-element
       opacity: 1
       width: 125%
       background: #ddd
@@ -84,7 +204,7 @@
         width: 428px
         height: 278px
 
-      .md-border-element
+      .border-element
         height: 25px
         border-radius: 0 0 14px 14px
 
@@ -94,11 +214,11 @@
         width: 600px
         height: 390px
 
-      .md-border-element
+      .border-element
         height: 35px
         border-radius: 0 0 20px 20px
 
-  &.device-3
+  &.device-tablet
 
     transform: translateY(40px)
 
@@ -126,7 +246,7 @@
       &:after
         transform: translateY(-175%) translateX(-50%) scale(1)
 
-  &.device-4
+  &.device-phone
     transform: translateY(50px)
 
     &.md-rotated
