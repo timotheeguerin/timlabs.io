@@ -6,7 +6,7 @@
     h3 Web developer
     .buttons
       a.transparent-button.text-lg href='#welcome-content' data-speed='500'
-        | Contact
+        = fa_icon 'caret-right'
   #welcome-content.welcome-content
     .section.text-center class='bg-blue-darker text-grey-lighter'
       h2 Some title
@@ -15,7 +15,6 @@
       .device-container
         .device.device-pc.device-sm
           a.device-screen href="#" class='bg-red-medium'
-            /img src=image_path('site1.jpg')
             - 5.times.each do
               = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
           .border-element

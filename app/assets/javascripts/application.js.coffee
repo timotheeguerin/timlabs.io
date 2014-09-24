@@ -57,19 +57,3 @@ $(document).ready () ->
         }, speed)
 
         return false
-
-  $(document).on 'mouseenter', '.scale-font-over', () ->
-    console.log('enter')
-    item = $(this)
-    scale = item.data('scale')
-    item.data('old-size', item.css('font-size')) unless item.data('old-size')
-    size = parseInt(item.data('old-size') or item.css('font-size')) * scale
-    item.animate({"font-size": size})
-
-
-  $(document).on 'mouseleave', '.scale-font-over', () ->
-    console.log('leave')
-
-    item = $(this)
-    size = item.data('old-size')
-    item.animate({"font-size": size})

@@ -29,6 +29,9 @@
       .fa
         font-size: 4rem
         margin: 1rem
+        transition: all 0.2s ease
+        &:hover
+          font-size: 8rem
 
 /* General style for all devices */
 
@@ -44,7 +47,6 @@
     display: block
     outline: none
     position: relative
-
 
     img
       display: block
@@ -64,7 +66,7 @@
 .device div,
 .device:before,
 .device:after
-  //box-sizing: content-box
+//box-sizing: content-box
 
 /* Common pseudo elements' properties */
 /* device:before -- camera / top element */
@@ -90,7 +92,6 @@
   width: 4px
   height: 4px
   border-radius: 50%
-
 
 /* Hide element, show only for the devices that need them */
 .border-element,
@@ -148,7 +149,6 @@
   width: 260px
   height: 12px
   transform: translateY(60px) translateX(-50%)
-
 
 .device
   &.device-pc
