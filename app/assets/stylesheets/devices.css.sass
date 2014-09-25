@@ -4,28 +4,35 @@
   position: relative
   padding-bottom: 10rem
   padding-top: 4rem
+  margin: auto
   .device
-
+    transition: all 0.5s ease
     &.device-pc
+      position: relative
 
-    &.device-laptop
+    &.device-laptop, &.device-tablet, &.device-phone
+      margin-left: 50%
+      //Align relative to the center(Keep positioning when screen size change)
       position: absolute
+
+    //Specific device positioning
+    &.device-laptop
       top: 15rem
-      left: 0
+      left: -40rem
 
     &.device-tablet
-      position: absolute
       top: 4rem
-      left: 67rem
+      left: 16rem
 
     &.device-phone
-      position: absolute
       top: 15rem
-      left: 59rem
+      left: 11rem
+
     a.device-screen
       display: flex
       align-items: center
       justify-content: center
+      overflow: hidden
       .fa
         font-size: 4rem
         margin: 1rem

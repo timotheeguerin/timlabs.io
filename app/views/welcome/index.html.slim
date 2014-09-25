@@ -1,21 +1,21 @@
 .welcome
   .background-skrollr src=image_path('trianglify-background.svg')
   .welcome-heading
-    .round-picture
+    img.round-picture src=image_path('portrait1.jpg')
     h1 Timothée Guérin
     h3 Web developer
     .buttons
-      a.transparent-button.text-lg href='#welcome-content' data-speed='500'
-        = fa_icon 'caret-right'
+      a.btn-transparent href='#welcome-content' data-speed='500' class='text-lg text-grey-lighter'
+        | Get started!
   #welcome-content.welcome-content
     .section.text-center class='bg-blue-darker text-grey-lighter'
       h2 Some title
       - 30.times.each
         = 'Some text '
-      .device-container
+      .container.device-container
         .device.device-pc.device-sm
           a.device-screen href="#" class='bg-red-medium'
-            - 5.times.each do
+            - 6 .times.each do
               = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
           .border-element
           .base-element

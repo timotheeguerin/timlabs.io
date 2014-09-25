@@ -45,13 +45,9 @@ $(document).ready () ->
     speed = $(this).data('speed') or 1000
 
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname)
-      console.log(this.hash)
-      target = $(this.hash)
-      console.log(target)
+      target = $(this.  hash)
       #      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      console.log(target.length)
       if target.length
-        console.log('len')
         $('html,body').animate({
           scrollTop: target.offset().top - header_height
         }, speed)
