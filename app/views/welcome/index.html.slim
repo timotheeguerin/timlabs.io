@@ -46,9 +46,28 @@
       - 30.times.each
         = 'Some text '
     .section-join
-    .section.text-center class='bg-test text-grey-lightest'
+    .section.text-center class='bg-blue-darker text-grey-lightest'
       .round-picture
       h2 Some title
       - 30.times.each
         = 'Some text '
-    .section.text-center class='bg-grey-dark text-grey-lightest'
+    .section.text-center class='bg-grey-lightest text-grey-darker'
+      .round-picture
+      h2 Some title
+      - 30.times.each
+        = 'Some text '
+    .section class='bg-blue-darker text-grey-medium'
+      = form_tag '', class:'large-form' do
+        h2.text-center Contact me
+        h3 Feel free to send me a message for any information!
+        = text_field_tag :email, '', placeholder: 'Email'
+
+        = text_area_tag :content, '', placeholder: 'Message'
+
+        = submit_tag 'Submit'
+
+      .external-links
+        a href='https://github.com/timcolonel' target='_blank'
+          = fa_icon 'github-square'
+        a href='https://www.linkedin.com/in/timotheeguerin' target='_blank'
+          = fa_icon 'linkedin-square'

@@ -82,8 +82,6 @@ a
     background-color: rgba(255, 255, 255, 0.1)
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.25) !important
 
-
-
 .section-join
   height: 7rem
   border-left: 1px solid white
@@ -100,7 +98,7 @@ a
 
 .section
   min-height: 100vh
-
+  box-sizing: border-box
 .section-box
   width: 50%
   margin: auto
@@ -124,3 +122,58 @@ a
 .vhr
   display: inline-block
   margin: 0 1rem
+
+.large-form
+  font-size: 2rem
+  max-width: 40rem
+  width: 100%
+  margin: auto
+  h2
+    font-weight: 100
+    color: white
+
+  h3
+    font-size: 1.5rem
+    font-weight: 100
+    color: rgba(152, 175, 197, 0.7)
+  input, textarea
+    width: 100%
+    margin: 2rem auto
+    padding: 1rem
+    display: block
+    background: #2a3340
+    color: $grey_light
+    border: none
+    box-sizing: border-box
+    font-size: 2rem
+    font-family: Helvetica
+    font-weight: 200
+    border-radius: .2rem
+
+    &::-webkit-input-placeholder
+      color: rgba(152, 175, 197, 0.7)
+    &:-moz-placeholder
+      color: rgba(152, 175, 197, 0.7)
+    &::-moz-placeholder
+      color: rgba(152, 175, 197, 0.7)
+    &:-ms-input-placeholder
+      color: rgba(152, 175, 197, 0.7)
+
+  textarea
+    min-height: 15rem
+
+  input[type='submit']
+    cursor: pointer
+    color: white
+    background: #14bfff
+
+.external-links
+  width: 16rem
+  margin: auto
+  font-size: 4rem
+  text-align: center
+  a
+    margin: 1rem
+    color: rgba(152, 175, 197, 0.7)
+    &:hover
+      color: rgb(152, 175, 197)
