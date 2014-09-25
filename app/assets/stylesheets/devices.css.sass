@@ -1,5 +1,54 @@
 @import "variables"
 
+//================================================================
+// Medium
+//================================================================
+$device_md_pc_width: 542px
+$device_md_pc_height: $device_md_pc_width * 367/542
+//367px
+
+$device_md_laptop_width: 470px
+$device_md_laptop_height: $device_md_laptop_width * 320/470
+//320px
+
+$device_md_tablet_width: 256px
+$device_md_tablet_height: $device_md_tablet_width * 345 / 256
+//345px
+
+$device_md_phone_width: 158px
+$device_md_phone_height: $device_md_phone_width * 298 / 158
+//298px
+
+//================================================================
+// Small
+//================================================================
+$device_sm_pc_width: $device_md_pc_width * 0.75
+$device_sm_pc_height: $device_md_pc_height * 0.75
+
+$device_sm_laptop_width: $device_md_laptop_width * 0.75
+$device_sm_laptop_height: $device_md_laptop_height * 0.75
+
+$device_sm_tablet_width: $device_md_tablet_width * 0.75
+$device_sm_tablet_height: $device_md_tablet_height * 0.75
+
+$device_sm_phone_width: $device_md_phone_width * 0.75
+$device_sm_phone_height: $device_md_phone_height * 0.75
+
+//================================================================
+// Large
+//================================================================
+$device_lg_pc_width: $device_md_pc_width * 1.25
+$device_lg_pc_height: $device_md_pc_height * 1.25
+
+$device_lg_laptop_width: $device_md_laptop_width * 1.25
+$device_lg_laptop_height: $device_md_laptop_height * 1.25
+
+$device_lg_tablet_width: $device_md_tablet_width * 1.25
+$device_lg_tablet_height: $device_md_tablet_height * 1.25
+
+$device_lg_phone_width: $device_md_phone_width * 1.25
+$device_lg_phone_height: $device_md_phone_height * 1.25
+
 .device-container
   position: relative
   padding-bottom: 10rem
@@ -9,6 +58,7 @@
     transition: all 0.5s ease
     &.device-pc
       position: relative
+      margin: auto
 
     &.device-laptop, &.device-tablet, &.device-phone
       margin-left: 50%
@@ -21,11 +71,11 @@
       left: -40rem
 
     &.device-tablet
-      top: 4rem
+      top: 8rem
       left: 16rem
 
     &.device-phone
-      top: 15rem
+      top: 19rem
       left: 11rem
 
     a.device-screen
@@ -41,10 +91,8 @@
           font-size: 8rem
 
 /* General style for all devices */
-
 .device
   position: relative
-  display: inline-block
   border-radius: 5px
   background-color: #333
   transform: translateY(0px)
@@ -67,14 +115,6 @@
       &.img.md-fadeout
         opacity: 0
 
-/* reset box sizing for this demo */
-/* we want the paddings to be added to our width/height */
-.device,
-.device div,
-.device:before,
-.device:after
-//box-sizing: content-box
-
 /* Common pseudo elements' properties */
 /* device:before -- camera / top element */
 /* device:after -- home button */
@@ -94,190 +134,222 @@
 .device:after
   background: $grey_darkest
 
-.device:before
-  transform: translateY(300%) translateX(-50%)
-  width: 4px
-  height: 4px
-  border-radius: 50%
-
 /* Hide element, show only for the devices that need them */
 .border-element,
 .base-element,
 .border-element:after
   opacity: 0
 
-/* device:after -- home button (device 3 and 4) */
-.device:after
-  width: 24px
-  height: 24px
-  top: 100%
-  border-radius: 50%
-  transform-origin: 50% 100%
-  transform: translateY(-200%) translateX(-50%) scale(0)
-
-/* border-element -- border bottom iMac, keyboard/base macbook */
-.border-element
-  height: 60px
-  border-radius: 0 0 5px 5px
-  top: 100%
-  width: 100%
-  background: #ddd
-  left: 50%
-
-/* border-element:after -- grey inset opending macbook */
-.border-element:after
-  background: #aaa
-  width: 100px
-  border-radius: 0 0 6px 6px
-  height: 10px
-  opacity: 0
-
-.border-element,
-.border-element:after
-  transform: translateX(-50%)
-
-/* base-element -- base imac */
-.base-element
-  top: 100%
-  left: 50%
-  width: 160px
-  height: 0
-  background: transparent
-  border-bottom: 60px solid #ddd
-  border-left: 15px solid transparent
-  border-right: 15px solid transparent
-  transform: translateY(60px) translateX(-50%) translateY(-75%)
-  z-index: -1
-
-/* base-element:after -- socket of base imac */
-.base-element:after
-  background: #ddd
-  border-radius: 30px 30px 10px 10px
-  width: 260px
-  height: 12px
-  transform: translateY(60px) translateX(-50%)
-
 .device
   &.device-pc
     border-radius: 5px 5px 0 0
 
+    &:before
+      width: 0.738%
+      height: 1.09%
+      border-radius: 100%
+      transform: translateY(300%) translateX(-50%)
+
     .border-element
       opacity: 1
+      &, &:after
+        transform: translateX(-50%)
 
+    > a
+      top: 5.7%
+      left: 3.8%
+      height: 88.6%
+      width: 92.4%
+
+    // White border at the bottom
+    .border-element
+      top: 100%
+      left: 50%
+      width: 100%
+      height: 11.5%
+      background: #ddd
+      border-bottom-right-radius: 0.923% 11.9%
+      border-bottom-left-radius: 0.923% 11.9%
+
+    //Mac leg
     .base-element
       opacity: 1
+      top: 100%
+      left: 50%
+
+      width: 29.5%
+      height: 20.9%
+
+      background: #d7d7d7
+      transform: translateX(-50%)
+      z-index: -1
+
+      &:after
+        background: #ddd
+        border-radius: 30px 30px 10px 10px
+        width: 180%
+        height: 14%
+        top: 100%
+        transform: translateX(-50%)
+
+    &.device-custom
+      width: $device_md_pc_width
+      height: $device_md_pc_height
 
     &.device-sm
-      padding: 21px
-      > a
-        width: 500px
-        height: 325px
-
-      .border-element
-        height: 42px
-
-      .base-element
-        height: 42px
-        &:after
-          transform: translateY(90px) translateX(-50%) translateY(0)
+      width: $device_sm_pc_width
+      height: $device_sm_pc_height
 
     &.device-md
-      padding: 30px
-      > a
-        width: 700px
-        height: 455px
+      width: $device_md_pc_width
+      height: $device_md_pc_height
 
-      .border-element
-        height: 60px
-      .base-element
-        height: 60px
-        transform: translateY(60px) translateX(-50%) translateY(0)
+    &.device-lg
+      width: $device_lg_pc_width
+      height: $device_lg_pc_height
 
   &.device-laptop
-    padding: 30px
     border-radius: 5px 5px 0 0
+
+    //Camera
+    &:before
+      width: 0.852%
+      height: 1.25%
+      border-radius: 100%
+      transform: translateY(300%) translateX(-50%)
 
     .border-element
       opacity: 1
+      top: 100%
+      left: 50%
       width: 125%
+      height: 7.81%
       background: #ddd
+      border-bottom-right-radius: 2.4% 58%
+      border-bottom-left-radius: 2.4% 58%
+
+      &, &:after
+        transform: translateX(-50%)
+
+      // border-element:after -- grey inset opending macbook
+      &:after
+        background: #aaaaaa
+        width: 17.0%
+        height: 41.6%
+        border-bottom-right-radius: 6% 60%
+        border-bottom-left-radius: 6% 60%
 
       &:after
         opacity: 1
+    > a
+      top: 6.6%
+      left: 4.5%
+      height: 86.8%
+      width: 91%
+
+    &.device-custom
+      width: $device_md_laptop_width
+      height: $device_md_laptop_height
 
     &.device-sm
-      padding: 21px
-      > a
-        width: 428px
-        height: 278px
-
-      .border-element
-        height: 25px
-        border-radius: 0 0 14px 14px
+      width: $device_sm_laptop_width
+      height: $device_sm_laptop_height
 
     &.device-md
-      padding: 21px
-      > a
-        width: 600px
-        height: 390px
+      width: $device_md_laptop_width
+      height: $device_md_laptop_height
 
-      .border-element
-        height: 35px
-        border-radius: 0 0 20px 20px
+    &.device-lg
+      width: $device_lg_laptop_width
+      height: $device_lg_laptop_height
 
   &.device-tablet
+    > a
+      top: 11.3%
+      left: 10.9%
+      height: 77.4%
+      width: 78.2%
 
-    transform: translateY(40px)
+    //Button
+    &:after
+      top: 100%
+      width: 9.38%
+      height: 6.97%
+      border-radius: 50%
+      transform: translateY(-125%) translateX(-50%)
 
+    //Bar at the top
+    &:before
+      width: 1.6%
+      height: 1.2%
+      border-radius: 100%
+      transform: translateY(600%) translateX(-50%)
+
+    //Modifiers
     &.md-rotated
       transform: translateY(40px) rotate(90deg)
 
-    &:before
-      transform: translateY(600%) translateX(-50%)
+    //Sizes
+
+    &.device-custom
+      width: $device_md_tablet_width
+      height: $device_md_tablet_height
 
     &.device-sm
-      padding: 39px 28px
-      > a
-        width: 200px
-        height: 267px
-
-      &:after
-        transform: translateY(-125%) translateX(-50%) scale(1)
+      width: $device_sm_tablet_width
+      height: $device_sm_tablet_height
 
     &.device-md
-      padding: 55px 40px
-      > a
-        width: 280px
-        height: 375px
+      width: $device_md_tablet_width
+      height: $device_md_tablet_height
 
-      &:after
-        transform: translateY(-175%) translateX(-50%) scale(1)
+    &.device-lg
+      width: $device_lg_tablet_width
+      height: $device_lg_tablet_height
 
   &.device-phone
-    transform: translateY(50px)
 
-    &.md-rotated
-      transform: translateY(50px) rotate(90deg)
+    // Screen
+    > a
+      top: 11.7%
+      left: 5.1%
+      height: 71.5%
+      width: 89.9%
 
+    // Button
+    &:after
+      top: 100%
+      height: 8.1%
+      width: 15.2%
+      border-radius: 50%
+      transform: translateY(-150%) translateX(-50%)
+
+    //Bar at the top
     &:before
-      width: 20px
-      height: 4px
+      width: 12.7%
+      height: 1%
       border-radius: 3px
       transform: translateY(600%) translateX(-50%)
 
-    &.device-sm
-      padding: 35px 8px 50px
-      > a
-        width: 142px
-        height: 213px
+    //Modifiers
+    &.md-rotated
+      transform: translateY(50px) rotate(90deg)
 
-      &:after
-        transform: translateY(-142%) translateX(-50%) scale(1)
+    //Sizes
+
+    &.device-custom
+      width: $device_md_phone_width
+      height: $device_md_phone_height
+
+    &.device-sm
+      width: $device_sm_phone_width
+      height: $device_sm_phone_height
 
     &.device-md
-      padding: 50px 12px 70px
-      > a
-        width: 200px
-        height: 299px
-      &:after
-        transform: translateY(-200%) translateX(-50%) scale(1)
+      width: $device_md_phone_width
+      height: $device_md_phone_height
+
+    &.device-lg
+      width: $device_lg_phone_width
+      height: $device_lg_phone_height
+

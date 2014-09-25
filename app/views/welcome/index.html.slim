@@ -1,7 +1,8 @@
 .welcome
   .background-skrollr src=image_path('trianglify-background.svg')
   .welcome-heading
-    img.round-picture src=image_path('portrait1.jpg')
+    /img.round-picture src=image_path('portrait1.jpg')
+    .round-picture
     h1 Timothée Guérin
     h3 Web developer
     .buttons
@@ -13,28 +14,28 @@
       - 30.times.each
         = 'Some text '
       .container.device-container
-        .device.device-pc.device-sm
+        .device.device-pc.device-md
           a.device-screen href="#" class='bg-red-medium'
             - 6 .times.each do
-              = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
+              = fa_icon 'car', class: 'text-grey-white scale-font-over'
           .border-element
           .base-element
-        .device.device-laptop.device-sm
+        .device.device-laptop.device-md
           a.device-screen href="#" class='bg-red-medium'
             - 5.times.each do
-              = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
+              = fa_icon 'car', class: 'text-grey-white scale-font-over'
           .border-element
           .base-element
-        .device.device-tablet.device-sm
+        .device.device-tablet.device-md
           a.device-screen href="#" class='bg-red-medium'
             - 2.times.each do
-              = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
+              = fa_icon 'car', class: 'text-grey-white scale-font-over'
           .border-element
           .base-element
-        .device.device-phone.device-sm
+        .device.device-phone.device-md
           a.device-screen href="#" class='bg-red-medium'
             - 1.times.each do
-              = fa_icon 'car', class: 'text-grey-white scale-font-over', 'data-scale'=> 1.5
+              = fa_icon 'car', class: 'text-grey-white scale-font-over'
           .border-element
           .base-element
     .relative

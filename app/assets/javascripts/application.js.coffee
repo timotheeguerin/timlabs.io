@@ -45,7 +45,7 @@ $(document).ready () ->
     speed = $(this).data('speed') or 1000
 
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname)
-      target = $(this.  hash)
+      target = $(this.hash)
       #      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
       if target.length
         $('html,body').animate({
@@ -53,3 +53,19 @@ $(document).ready () ->
         }, speed)
 
         return false
+
+  $('.device.device-custom').each () ->
+    resize_custom_device($(this))
+
+  $(document).on 'change mousemove', '.device-size-control', () ->
+    target = $($(this).data('target'))
+    target.data('ratio', $(this).val())
+    resize_custom_device(target)
+
+resize_custom_device = (item) ->
+  width = (item.data('start-width') or item.width())
+  height = (item.data('start-height') or item.height())
+  item.data('start-width', width)
+  item.data('start-height', height)
+  item.width(width * item.data('ratio'))
+  item.height(height * item.data('ratio'))
