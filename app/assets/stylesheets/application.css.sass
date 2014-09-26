@@ -41,13 +41,15 @@ header
       text-align: center
       vertical-align: middle
       text-shadow: 1px 1px rgba(152, 175, 197, 0.7)
-      > i
-        line-height: 4rem
       margin-right: 1px
+
+      > i
+        transition: 0.2s all
+        line-height: 4rem
       &.active
         color: $grey_lighter
         background: $blue_dark
-
+        text-shadow: none
         > i
           transform: rotate(90deg)
 
