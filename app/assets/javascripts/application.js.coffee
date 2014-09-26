@@ -49,7 +49,7 @@ $(document).ready () ->
       #      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
       if target.length
         $('html,body').animate({
-          scrollTop: target.offset().top - header_height
+          scrollTop: target.offset().top
         }, speed)
 
         return false
@@ -61,6 +61,23 @@ $(document).ready () ->
     target = $($(this).data('target'))
     target.data('ratio', $(this).val())
     resize_custom_device(target)
+
+  $(document).on 'mouseenter', '.header-control', () ->
+    control = $(this)
+    header = $(this).closest('header')
+    content = header.find('#header-content')
+    content.css('float', 'left')
+    control.addClass('active')
+    content.css('width', "calc(100% - #{control.outerWidth(true)}px")
+
+  $(document).on 'mouseleave', '.header-container', () ->
+    header = $(this)
+    control = header.find('.header-control')
+    content = header.find('#header-content')
+    control.removeClass('active')
+    content.css('float', 'right')
+    content.css('width', 0)
+
 
 resize_custom_device = (item) ->
   width = (item.data('start-width') or item.width())

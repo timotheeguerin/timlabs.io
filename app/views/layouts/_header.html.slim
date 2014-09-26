@@ -1,3 +1,9 @@
 header
-  a.header-title href=root_path
-    | TimLabs
+  .header-container
+    a.header-control
+      = fa_icon 'bars'
+    #header-content
+      a.header-link href=root_path
+        = fa_icon 'home'
+      a.header-link href='#contact'
+        | Contact
