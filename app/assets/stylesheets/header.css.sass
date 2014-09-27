@@ -1,0 +1,53 @@
+@import "variables"
+
+header
+  position: fixed
+  transform: translateZ(0)
+  //Fix problem with chrome
+  padding: 1rem 2rem
+  z-index: 2000
+  box-sizing: border-box
+  width: 100%
+  height: 6rem
+  .header-container
+    height: 100%
+    .header-control
+      float: left
+      display: block
+      height: 100%
+      width: 4rem
+      cursor: pointer
+      color: white
+      font-size: 3rem
+      text-align: center
+      vertical-align: middle
+      text-shadow: 1px 1px rgba(152, 175, 197, 0.7)
+      margin-right: 1px
+
+      > i
+        transition: 0.2s all
+        line-height: 4rem
+      &.active
+        color: $grey_lighter
+        background: $blue_dark
+        text-shadow: none
+        > i
+          transform: rotate(90deg)
+
+    #header-content
+      float: left
+      width: 0
+      overflow: hidden
+      height: 4rem
+      transition: 0.2s all
+      font-size: 2rem
+      text-align: center
+      a
+        font-weight: 100
+        float: left
+        margin-right: 1px
+        padding: 1rem
+        color: white
+        background: $blue_dark
+        &:hover
+          background-color: rgba(42, 51, 64, 0.1)

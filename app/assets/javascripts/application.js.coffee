@@ -67,31 +67,10 @@ $(document).ready () ->
         item.addClass(array[j])
         break
 
-  $(document).on 'change mousemove', '.device-size-control', () ->
-    target = $($(this).data('target'))
-    target.data('ratio', $(this).val())
-    resize_custom_device(target)
-
-  $(document).on 'mouseenter', '.header-control', () ->
-    control = $(this)
-    header = $(this).closest('header')
-    content = header.find('#header-content')
-    content.css('float', 'left')
-    control.addClass('active')
-    content.css('width', "calc(100% - #{control.outerWidth(true)}px")
-
-  $(document).on 'mouseleave', '.header-container', () ->
-    header = $(this)
-    control = header.find('.header-control')
-    content = header.find('#header-content')
-    control.removeClass('active')
-    content.css('float', 'right')
-    content.css('width', 0)
 
   $(document).find('.example-section').each () ->
     container = $(this)
     variables = {}
-    enabled_inputs = {}
 
     #Update the variables with the value of the input/buttons
     update_variables = (input) ->
