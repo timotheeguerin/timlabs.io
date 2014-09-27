@@ -5,8 +5,8 @@ $(document).on 'click', '.header-control', () ->
   show_header($(this))
 
 $(document).on 'mouseleave', '.header-container', () ->
-#  unless is_mobile()
-#    hide_header($(this))
+  unless is_mobile()
+    hide_header($(this))
 
 $(document).mouseup (e) ->
   header = $('header')
