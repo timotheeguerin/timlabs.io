@@ -91,11 +91,24 @@ $(document).ready () ->
   $(document).find('.example-section').each () ->
     container = $(this)
     variables = {}
+    enabled_inputs = {}
 
-    update_variables = (buttons, active = null) ->
-      active ||= buttons.find('.active')
-      variable = buttons.data('var')
-      value = active.data('value')
+    #Update the variables with the value of the input/buttons
+    update_variables = (input) ->
+      value = ''
+      variable = ''
+      template = ''
+      if input.hasClass('buttons')
+        value = input.find('.active').data('value')
+        variable = input.data('var')
+        template = input.data('format')
+      else
+        value = input.val()
+        variable = input.attr('name')
+        template = input.data('format')
+      value = '' if input.hasClass('disabled')
+      if template and value
+        value = template.tmpl(value: value)
       variables[variable] = value
 
     # Render the template in the pre tag
@@ -105,24 +118,45 @@ $(document).ready () ->
         demo = $(pre.data('demo'))
         code = pre.data('template').tmpl(variables)
         pre.text(code)
-        demo.html(code) if demo
+        if demo
+          demo.html(code)
+          resize_custom_device(demo.children())
 
-    container.find('.buttons').each () ->
+    update_input = ()->
+      input = $(this)
+      update_variables(input)
+      render_example()
+
+    container.find('.buttons, input').each () ->
       update_variables($(this))
     render_example()
 
     $(container).on 'click', '.buttons a', () ->
       button = $(this)
       buttons = button.closest('.buttons')
-      buttons.find('.active').removeClass('active')
+      old_active = buttons.find('.active')
+      old_active.removeClass('active')
+      if old_active.hasClass('toggle-buttons')
+        target_buttons = $(old_active.data('target'))
+        target_buttons.removeClass('enabled').addClass('disabled')
+        update_variables(target_buttons)
       button.addClass('active')
-      update_variables(buttons, button)
+      update_variables(buttons)
+      if button.hasClass('toggle-buttons')
+        target_buttons = $(button.data('target'))
+        target_buttons.removeClass('disabled').addClass('enabled')
+        update_variables(target_buttons)
       render_example()
+
+    $(container).on 'change', 'input', update_input
+    $(container).on 'mousemove', 'input[type="range"]', update_input
+
 
 resize_custom_device = (item) ->
   width = (item.data('start-width') or item.width())
   height = (item.data('start-height') or item.height())
   item.data('start-width', width)
   item.data('start-height', height)
-  item.width(width * item.data('ratio'))
-  item.height(height * item.data('ratio'))
+  console.log("resize: #{width}, #{height}, #{item.data('ratio')}")
+  item.width(width * parseFloat(item.data('ratio')))
+  item.height(height * parseFloat(item.data('ratio')))

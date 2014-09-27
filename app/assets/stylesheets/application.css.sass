@@ -1,14 +1,4 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
+/**
  *
  *= require_tree .
  *= require_self
@@ -26,7 +16,8 @@ body
 
 header
   position: fixed
-  transform: translateZ(0) //Fix problem with chrome
+  transform: translateZ(0)
+  //Fix problem with chrome
   padding: 1rem 2rem
   z-index: 2000
   box-sizing: border-box
@@ -74,18 +65,6 @@ header
         background: $blue_dark
         &:hover
           background-color: rgba(42, 51, 64, 0.1)
-
-//flex: 1 1 auto
-//width: 100%
-//top: 0
-//z-index: 1000
-//background-color: white
-//box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3)
-//height: $header-height
-//.header-title
-//  margin: 0.5rem 1rem
-//  font-size: 3rem
-//  color: $grey_medium
 
 body
   //background-color: $grey_lightest
@@ -257,9 +236,12 @@ h2
   justify-content: center
 
 .example-section
+  position: relative
   background-color: $blue_darker
   border-top: 1px solid rgba(152, 175, 197, 0.7)
   padding: 4rem 1rem
+  box-sizing: border-box
+  height: 100vh
   [class*=col-]
     padding: 1rem
     box-sizing: border-box
@@ -289,6 +271,13 @@ h2
 
       &.active
         color: $blue_lighter
+  .input-group
+    text-align: center
+    input
+      width: 90%
+      margin: auto
+  .buttons.disabled, input.disabled
+    display: none
 
   pre
     color: rgba(152, 175, 197, 0.7)
@@ -303,8 +292,9 @@ h2
 
 .continue-link
   position: absolute
+  z-index: 1000
   font-size: 4rem
-  color: rgba(152, 175, 197, 0.7)
+  color: $blue_grey_lighter
   bottom: 2rem
   right: 2rem
 
