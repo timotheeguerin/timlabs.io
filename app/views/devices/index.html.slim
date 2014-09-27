@@ -1,0 +1,38 @@
+.bg-blue-darker
+  .window-height
+    .header-clearer
+    .container
+      h1.text-grey-lightest.text-center Embedded devices
+      .device-demo
+        .device-animation
+          .device.device-pc.device-md.device-change
+            .device-screen class='bg-red-medium'
+            .border-element
+            .base-element
+
+          .keyframes
+            .keyframe data-time=5000 data-device='laptop' data-scale=1
+            .keyframe data-time=10000 data-device='tablet' data-scale=1
+            .keyframe data-time=15000 data-device='phone' data-scale=1
+            .keyframe data-time=20000 data-device='pc' data-scale=1
+    a.continue-link href='#simple-device-example'
+      = fa_icon 'long-arrow-down'
+
+  #simple-device-example.row.example-section
+    .col-md-6
+      h2 Display simple device
+      h3 Code to display a simple device, select the device you which to display.
+      .buttons data-var='device_name'
+        a.active data-value='device-pc'
+          = fa_icon 'desktop'
+        a data-value='device-laptop'
+          = fa_icon 'laptop'
+        a data-value='device-tablet'
+          = fa_icon 'tablet'
+        a data-value='device-phone'
+          = fa_icon 'mobile-phone'
+      pre data-template= embed_code('devices/template/simple_device') data-demo='#simple-device-demo'
+    .col-md-6
+      #simple-device-demo.demo
+
+  .row.example-section

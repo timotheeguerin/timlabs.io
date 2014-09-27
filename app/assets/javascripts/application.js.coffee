@@ -57,6 +57,16 @@ $(document).ready () ->
   $('.device.device-custom').each () ->
     resize_custom_device($(this))
 
+  $(document).on 'click', '.device.device-change', () ->
+    array = ['device-pc', 'device-laptop', 'device-tablet', 'device-phone']
+    item = $(this)
+    for i in [0...array.length]
+      if(item.hasClass(array[i]))
+        item.removeClass(array[i])
+        j = (i + 1) % array.length
+        item.addClass(array[j])
+        break
+
   $(document).on 'change mousemove', '.device-size-control', () ->
     target = $($(this).data('target'))
     target.data('ratio', $(this).val())
@@ -78,6 +88,36 @@ $(document).ready () ->
     content.css('float', 'right')
     content.css('width', 0)
 
+  $(document).find('.example-section').each () ->
+    container = $(this)
+    variables = {}
+
+    update_variables = (buttons, active = null) ->
+      active ||= buttons.find('.active')
+      variable = buttons.data('var')
+      value = active.data('value')
+      variables[variable] = value
+
+    # Render the template in the pre tag
+    render_example = () ->
+      container.find('pre').each () ->
+        pre = $(this)
+        demo = $(pre.data('demo'))
+        code = pre.data('template').tmpl(variables)
+        pre.text(code)
+        demo.html(code) if demo
+
+    container.find('.buttons').each () ->
+      update_variables($(this))
+    render_example()
+
+    $(container).on 'click', '.buttons a', () ->
+      button = $(this)
+      buttons = button.closest('.buttons')
+      buttons.find('.active').removeClass('active')
+      button.addClass('active')
+      update_variables(buttons, button)
+      render_example()
 
 resize_custom_device = (item) ->
   width = (item.data('start-width') or item.width())

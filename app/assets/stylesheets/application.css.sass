@@ -21,6 +21,9 @@ html
   font-family: 'Helvetica Neue', Helvetica, sans-serif
   font-size: 13px
 
+body
+  overflow: auto
+
 header
   position: fixed
   padding: 1rem 2rem
@@ -96,6 +99,17 @@ a
   text-decoration: none
   &:hover
     color: #00B3FF
+
+h1
+  font-size: 4rem
+  font-weight: 100
+
+h2
+  font-size: 2rem
+  font-weight: 100
+
+.header-clearer
+  height: 4rem
 
 .text.xxs
   font-size: 0.5rem
@@ -226,3 +240,71 @@ a
     color: rgba(152, 175, 197, 0.7)
     &:hover
       color: rgb(152, 175, 197)
+
+.center-flex
+  display: flex
+  align-content: center
+  align-items: center
+  justify-content: center
+
+.center-v-flex
+  height: 100%
+  display: flex
+  flex-direction: column
+  align-content: center
+  align-items: center
+  justify-content: center
+
+.example-section
+  background-color: $blue_darker
+  border-top: 1px solid rgba(152, 175, 197, 0.7)
+  padding: 4rem 1rem
+  [class*=col-]
+    padding: 1rem
+    box-sizing: border-box
+    &:not(:first-child)
+      padding-left: 4rem
+    &:not(:last-child)
+      padding-right: 4rem
+  h2
+    font-size: 2rem
+    font-weight: 100
+    color: $grey_lightest
+    text-align: center
+  h3
+    font-size: 1.3rem
+    font-weight: 100
+    color: rgba(152, 175, 197, 0.7)
+  .buttons
+    font-size: 4rem
+    cursor: pointer
+    text-align: center
+    a
+      color: white
+      margin: 0 1rem
+
+      &:hover
+        color: $grey_lighter
+
+      &.active
+        color: $blue_lighter
+
+  pre
+    padding: 1rem
+    background-color: $blue_dark
+    border-radius: 1rem
+
+  .demo
+    .device
+      margin-left: auto
+      margin-right: auto
+
+.continue-link
+  position: absolute
+  font-size: 4rem
+  color: rgba(152, 175, 197, 0.7)
+  bottom: 2rem
+  right: 2rem
+
+  &:hover
+    color: rgba(152, 175, 197, 0.2)

@@ -1,11 +1,20 @@
 @import "variables"
+//
+//.container
+//  margin: auto
+//  @media (min-width: $screen-sm-min)
+//    width: $container-sm
+//
+//  @media (min-width: $screen-md-min)
+//    width: $container-md
+//
+//  @media (min-width: $screen-lg-min)
+//    width: $container-lg
 
-.container
-  @media (min-width: $screen-sm-min)
-    width: $container-sm
+.window-height
+  height: 100vh
+  box-sizing: border-box
+  position: relative
 
-  @media (min-width: $screen-md-min)
-    width: $container-md
-
-  @media (min-width: $screen-lg-min)
-    width: $container-lg
+.min-window-height
+  min-height: 100vh

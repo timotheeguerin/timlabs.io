@@ -53,7 +53,8 @@ $device_lg_phone_height: $device_md_phone_height * 1.25
   position: relative
   padding-bottom: 10rem
   padding-top: 4rem
-  margin: auto
+  margin-left: auto
+  margin-right: auto
   .device
     transition: all 0.5s ease
     &.device-pc
@@ -98,7 +99,7 @@ $device_lg_phone_height: $device_md_phone_height * 1.25
   transform: translateY(0px)
   > div
     position: absolute
-  > a
+  > .device-screen
     display: block
     outline: none
     position: relative
@@ -114,6 +115,14 @@ $device_lg_phone_height: $device_md_phone_height * 1.25
 
       &.img.md-fadeout
         opacity: 0
+
+.device-demo
+
+  .device
+    margin-left: auto
+    margin-right: auto
+    transition: 0.3s all
+    transition-timing-function: ease-in-out
 
 /* Common pseudo elements' properties */
 /* device:before -- camera / top element */
@@ -141,8 +150,11 @@ $device_lg_phone_height: $device_md_phone_height * 1.25
   opacity: 0
 
 .device
+  transform: translateZ(0)
+  //To fix chrome bug
   &.device-pc
     border-radius: 5px 5px 0 0
+    margin-bottom: 21%
 
     &:before
       width: 0.738%
@@ -156,7 +168,7 @@ $device_lg_phone_height: $device_md_phone_height * 1.25
       &, &:after
         transform: translateX(-50%)
 
-    > a
+    > .device-screen
       top: 5.7%
       left: 3.8%
       height: 88.6%
@@ -211,6 +223,7 @@ $device_lg_phone_height: $device_md_phone_height * 1.25
 
   &.device-laptop
     border-radius: 5px 5px 0 0
+    margin-bottom: 8%
 
     //Camera
     &:before
@@ -243,7 +256,7 @@ $device_lg_phone_height: $device_md_phone_height * 1.25
 
       &:after
         opacity: 1
-    > a
+    > .device-screen
       top: 6.6%
       left: 4.5%
       height: 86.8%
@@ -266,7 +279,7 @@ $device_lg_phone_height: $device_md_phone_height * 1.25
       height: $device_lg_laptop_height
 
   &.device-tablet
-    > a
+    > .device-screen
       top: 11.3%
       left: 10.9%
       height: 77.4%
@@ -286,7 +299,7 @@ $device_lg_phone_height: $device_md_phone_height * 1.25
       height: 1.2%
       border-radius: 100%
       top: 8%
-      transform:  translateX(-50%)
+      transform: translateX(-50%)
 
     //Modifiers
     &.md-rotated
@@ -313,7 +326,7 @@ $device_lg_phone_height: $device_md_phone_height * 1.25
   &.device-phone
 
     // Screen
-    > a
+    > .device-screen
       top: 11.7%
       left: 5.1%
       height: 71.5%
