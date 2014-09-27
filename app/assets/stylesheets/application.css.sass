@@ -36,7 +36,6 @@ h2
   font-size: 2rem
   font-weight: 100
 
-
 .header-clearer
   height: 4rem
 
@@ -79,17 +78,18 @@ h2
   border-right: 1px solid white
   width: 40%
   margin: auto
+  @media screen and (max-device-width: $screen-sm-min), screen and (max-width: $screen-sm-min)
+    display: none
 
 .section, .section-box
-  padding: 1rem
+  padding: 5rem
   font-size: 2rem
   h2
     margin-top: 0
     font-size: 4rem
-  @media (max-width: $screen-sm-min)
+  @media screen and (max-device-width: $screen-sm-min), screen and (max-width: $screen-sm-min)
     overflow: hidden
-  @media (min-width: $screen-sm-min)
-    padding: 5rem
+    padding: 5rem 1rem
 
 .section
   min-height: 100vh
@@ -100,7 +100,6 @@ h2
   margin: auto
 
 .section-box
-  width: 100%
   @media (min-width: $screen-sm-min)
     width: 85%
 
@@ -109,6 +108,9 @@ h2
 
   @media (min-width: $screen-lg-min)
     width: 50%
+
+  @media screen and (max-device-width: $screen-sm-min), screen and (max-width: $screen-sm-min)
+    width: 100%
 
 .text-center
   text-align: center
