@@ -6,8 +6,16 @@
   filter: blur(0px)
   width: 100%
   min-height: 150vh
-  background: url(image_path('trianglify-background.svg')) no-repeat
-  background-size: cover
+
+  @media (max-width: $screen-sm-min)
+    //background: url(image_path('trianglify-background-light.svg')) no-repeat
+    //background-size: cover
+    background: #B3D0EE
+
+  @media (min-width: $screen-sm-min)
+    background: url(image_path('trianglify-background.svg')) no-repeat
+    background-size: cover
+
   //background-position: 0 -100px
 
 .welcome-heading

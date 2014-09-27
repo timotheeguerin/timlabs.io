@@ -18,15 +18,14 @@
 parallax_backgrounds = [];
 $(document).ready () ->
   header_height = $('header').height()
-
-  $('.background-skrollr').each () ->
-    parallax_background = {}
-    parallax_background.element = $(this)
-    parallax_background.height = parallax_background.element.height();
-    parallax_background.starting = parallax_background.element.offset();
-    console.log("Stating: #{parallax_background.starting.top}")
-    parallax_backgrounds.push(parallax_background)
-    parallax_background.element.css('transform', "translate3d(0, -25vh, 0)")
+  unless /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)
+    $('.background-skrollr').each () ->
+      parallax_background = {}
+      parallax_background.element = $(this)
+      parallax_background.height = parallax_background.element.height();
+      parallax_background.starting = parallax_background.element.offset();
+      parallax_backgrounds.push(parallax_background)
+      parallax_background.element.css('transform', "translate3d(0, -25vh, 0)")
 
 
   $(window).scroll () ->
