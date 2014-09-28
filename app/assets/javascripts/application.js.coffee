@@ -37,7 +37,6 @@ $(document).ready () ->
           value = scroll - parallax_background.starting.top
           console.log("val: #{value}, scroll: #{scroll}")
           parallax_background.element.css('transform', "translate3d(0, calc(#{(value * 0.75).toFixed(0)}px - 25vh), 0)")
-          console.log('margin: #{}')
 
 
   $('a[href*=#]:not([href=#])').click () ->

@@ -26,7 +26,7 @@ show_header = (control) ->
     content.show()
   else
     content.css('float', 'left')
-    content.css('width', "calc(100% - #{control.outerWidth(true)}px")
+    content.css('width', "calc(100% - #{control.outerWidth(true)}px)")
 
 hide_header = (header) ->
   control = header.find('.header-control')
